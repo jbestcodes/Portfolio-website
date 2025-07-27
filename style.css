@@ -93,3 +93,12 @@ button:hover{
     border: 3px solid #333;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
+#projects {
+    padding: 50px 20px; /* add padding around the section*/
+    background-color: #f9f9f9; /*light background for separation*/
+}
+#project h2{
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: #333
+}
