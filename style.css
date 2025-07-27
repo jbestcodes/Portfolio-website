@@ -130,3 +130,28 @@ button:hover{
     background-color: #ff6666;
     cursor: default;
 }
+#education{
+    background-color: #f0f8ff;
+    padding: 40px 20px;
+}
+#education h2{
+    font-size: 28px;
+    margin-bottom: 25px;
+    color: #333;
+}
+.education-content{
+    max-width: 700px;
+    margin: 0 auto;
+}
+.edu-box{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0);
+    margin-bottom: 20px;
+}
+.cv-button{
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
