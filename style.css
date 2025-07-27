@@ -170,22 +170,19 @@ button:hover{
     margin-bottom: 20px;
     color: #333;
 }
-.interet-list{
-    list-style: none;
+.interest-grid{
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 12px;
-    margin: 0;
-    flex-wrap: wrap;
+    grid-template-columns: 1fr; /*one column*/
+    gap: 10px;
+    margin-bottom: 20px;
 }
-.interet-list li span{
+.interest-grid span{
     font-size: 16px;
     background: #e9f0f7;
     padding: 8px 12px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    flex: 1 1 45%;
     display: inline-block;
     align-items: start;
     text-align: center;
