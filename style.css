@@ -29,7 +29,7 @@ header{
 }
 header h1{
     color: #2e7d32; /*deep green*/
-    font-size: 60px;
+    font-size: 2.5rem; /* or bigger */
     font-weight: bold;
     margin-bottom: 10px;
 }
@@ -44,6 +44,9 @@ a{
 }
 a:hover{
     text-decoration: underline;
+}
+a:link{
+    color: blue
 }
 a:visited {
     color: red;
