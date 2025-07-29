@@ -171,11 +171,13 @@ button:hover{
     color: #333;
 }
 .interest-grid{
-    padding: 0;
+    padding-left: 1rem;
     display: grid;
     grid-template-columns: 1fr; /*one column*/
-    gap: 10px;
+    row-gap: 0.5rem;
     margin-bottom: 20px;
+    list-style: none;
+    margin: 0;
 }
 .interest-grid span{
     font-size: 16px;
@@ -185,6 +187,6 @@ button:hover{
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     display: inline-block;
     align-items: start;
-    text-align: center;
+    text-align: left;
     gap: 8px;
 }
