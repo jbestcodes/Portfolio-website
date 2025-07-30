@@ -191,3 +191,6 @@ button:hover{
     text-align: left;
     gap: 8px;
 }
+body{
+    background-color: #fff0f5;
+}
