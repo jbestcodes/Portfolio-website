@@ -168,22 +168,28 @@ button:hover{
 }
 .skills-grid{
     display: grid;
-    grid-template-columns: repeat(2, auto);
-    gap: 15px 30px;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 18px 24px;
     justify-content: center;
     margin-top: 20px;
+    padding: 10px 0;
 }
 .skill-badge{
-    background-color: #f0f0f0;
-    border-radius: 20px;
-    padding: 10px 20px;
-    font-weight: bold;
-    color: #333;
-    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
-    transition: 0.3s ease;
+    background-color: #f8fafc;
+    border-radius: 24px;
+    padding: 12px 18px;
+    font-weight: 500;
+    color: #222;
+    box-shadow: 1px 2px 8px rgba(44, 62, 80, 0.07);
+    font-size: 1.08em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.2s, color 0.2s;
 }
 .skill-badge:hover{
-    background-color: #ff6666;
+    background-color: #e0f7fa;
+    color: #1976d2;
     cursor: default;
 }
 #education{
