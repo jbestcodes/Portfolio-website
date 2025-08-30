@@ -90,12 +90,14 @@ button:hover{
     margin-top: 30px;
 }
 .profile-pic {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
+    width: 140px;
+    height: 140px;
     object-fit: cover;
-    border: 3px solid #333;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    border: 4px solid #e6f4ea;
+    box-shadow: 0 2px 12px rgba(44, 62, 80, 0.10);
+    display: block;
+    margin: 30px auto 20px auto;
 }
 #projects {
     padding: 50px 20px;
