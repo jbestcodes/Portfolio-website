@@ -98,6 +98,19 @@ button:hover{
     box-shadow: 0 2px 12px rgba(44, 62, 80, 0.10);
     margin-bottom: 0;
 }
+.profile-tagline {
+    font-size: 1.2em;
+    color: #1565c0;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+.tagline-highlight {
+    color: #1976d2;
+    font-weight: bold;
+}
 #projects {
     padding: 50px 20px;
     background-color: #f9f9f9;
