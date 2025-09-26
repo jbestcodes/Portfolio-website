@@ -1,21 +1,45 @@
-#portfolio website
-This is my first personal portfolio website created as part of my full-stack development journey. The site is built using HTML and CSS only.
-## features
--A short professional introduction
--Link to my Github project
--LinkedIn and WhatsApp links
--A downloadable CV
--Profile image and basic styling
+# Julie Adul - Full Stack Developer Portfolio
 
-## Project Structure
-'index.html'- main website content
-'style.css'- styling and layout
-'photo.jpg'- profile image
-'cv.pdf'- my curriculum vitae
-'Thank you.html- thank you page for contacting me.
+A responsive, multi-page portfolio website showcasing my skills as a full stack developer.
 
-## About Me
-I'm Julie Adul, a software engineering student with a background in education. This marks one of my first steps into web development.
+## 🚀 Live Demo
+[View Live Site](https://jbestcodes.github.io/Portfolio-website/)
 
-## Show some Love
-If you like this project, give it a star
+## 📋 Pages
+- **Home**: Hero section with introduction and quick skills overview
+- **About**: Detailed information about my background, skills, education, and interests
+- **Projects**: Showcase of my development projects
+- **Contact**: Contact form and social links
+
+## 🛠️ Technologies Used
+- HTML5
+- CSS3 (Flexbox, Grid, Animations)
+- JavaScript (ES6+)
+- Font Awesome Icons
+- Formspree (Contact Form)
+
+## 📱 Features
+- Fully responsive design
+- Mobile-friendly navigation
+- Interactive contact form
+- Smooth animations
+- Cross-browser compatible
+
+## 🎯 Project Structure
+```
+├── index.html          # Home page
+├── about.html          # About page
+├── projects.html       # Projects showcase
+├── contact.html        # Contact form
+├── css/
+│   └── style.css      # Main stylesheet
+├── js/
+│   └── script.js      # JavaScript functionality
+└── images/
+    └── profile.jpg    # Profile image
+```
+
+## 📧 Contact
+Feel free to reach out for collaborations or opportunities!
+- LinkedIn: [Julie Adul](https://linkedin.com/in/julie-adul)
+- WhatsApp: [Message Me](https://wa.me/254799590637)

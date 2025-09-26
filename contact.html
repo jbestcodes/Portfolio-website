@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me | Julie Adul</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">Julie Adul</div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="contact.html" class="nav-link active">Contact</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Hero -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content slide-left">
+                <h1>Get In Touch</h1>
+                <p class="hero-tagline">
+                    <span class="highlight typing-text">Let's Create Something Amazing Together</span><br>
+                    Ready to bring your ideas to life? I'd love to hear from you!
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact-form" class="btn-primary">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </a>
+                    <a href="https://wa.me/254799590637" target="_blank" class="btn-secondary">
+                        <i class="fab fa-whatsapp"></i> Quick Chat
+                    </a>
+                </div>
+            </div>
+            <div class="slide-right">
+                <div class="skill-badge" style="font-size: 3rem; width: 200px; height: 200px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-envelope" style="font-size: 4rem; color: #ff6b6b;"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Methods -->
+    <section class="skills-preview">
+        <div class="container">
+            <h2 class="slide-up">Ways to Reach Me</h2>
+            <div class="skills-grid">
+                <div class="skill-badge slide-up" style="animation-delay: 0.1s;">
+                    <i class="fas fa-envelope" style="font-size: 3rem; color: #ff6b6b; margin-bottom: 1rem;"></i>
+                    <h3>Email</h3>
+                    <p>jbesteduvisuals@outlook.com</p>
+                    <a href="mailto:jbesteduvisuals@outlook.com" class="btn-primary" style="margin-top: 1rem; padding: 10px 20px; font-size: 0.9rem;">Send Email</a>
+                </div>
+
+                <div class="skill-badge slide-up" style="animation-delay: 0.2s;">
+                    <a href="https://wa.me/254799590637?text=Hey%2C%20I%20would%20like%20you%20to%20build%20me%20a%20website" target="_blank" style="text-decoration: none; color: inherit;">
+                        <i class="fab fa-whatsapp" style="font-size: 3rem; color: #25D366; margin-bottom: 1rem;"></i>
+                        <h3>WhatsApp</h3>
+                        <p>Quick chat or project discussion</p>
+                        <span class="btn-primary" style="margin-top: 1rem; padding: 10px 20px; font-size: 0.9rem; display: inline-block;">Chat Now</span>
+                    </a>
+                </div>
+
+                <div class="skill-badge slide-up" style="animation-delay: 0.3s;">
+                    <a href="https://www.linkedin.com/in/julie-adul" target="_blank" style="text-decoration: none; color: inherit;">
+                        <i class="fab fa-linkedin" style="font-size: 3rem; color: #0A66C2; margin-bottom: 1rem;"></i>
+                        <h3>LinkedIn</h3>
+                        <p>Let's connect professionally</p>
+                        <span class="btn-primary" style="margin-top: 1rem; padding: 10px 20px; font-size: 0.9rem; display: inline-block;">Connect</span>
+                    </a>
+                </div>
+
+                <div class="skill-badge slide-up" style="animation-delay: 0.4s;">
+                    <a href="https://github.com/jbestcodes" target="_blank" style="text-decoration: none; color: inherit;">
+                        <i class="fab fa-github" style="font-size: 3rem; color: #333; margin-bottom: 1rem;"></i>
+                        <h3>GitHub</h3>
+                        <p>Check out my code and projects</p>
+                        <span class="btn-primary" style="margin-top: 1rem; padding: 10px 20px; font-size: 0.9rem; display: inline-block;">View Code</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="skills-preview" id="contact-form">
+        <div class="container">
+            <h2 class="slide-up">Send Me a Message</h2>
+            <div class="contact-form-wrapper slide-up">
+                <form action="https://formspree.io/f/myzdwzgz" method="POST" class="contact-form">
+                    <input type="hidden" name="_redirect" value="https://jbestcodes.github.io/Portfolio-website/thankyou.html">
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                            <i class="fas fa-user form-icon"></i>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Your Email" required>
+                            <i class="fas fa-envelope form-icon"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" name="subject" placeholder="Subject" required>
+                        <i class="fas fa-tag form-icon"></i>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
+                        <i class="fas fa-comment form-icon"></i>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        Send Message
+                        <span class="btn-animation"></span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Work With Me -->
+    <section class="skills-preview">
+        <div class="container">
+            <h2 class="slide-up">Why Work With Me?</h2>
+            <div class="skills-grid">
+                <div class="skill-badge slide-up" style="animation-delay: 0.1s;">
+                    <i class="fas fa-rocket" style="font-size: 2.5rem; color: #ff6b6b; margin-bottom: 1rem;"></i>
+                    <h3>Fast Delivery</h3>
+                    <p>Quick turnaround times without compromising quality</p>
+                </div>
+                
+                <div class="skill-badge slide-up" style="animation-delay: 0.2s;">
+                    <i class="fas fa-mobile-alt" style="font-size: 2.5rem; color: #4ecdc4; margin-bottom: 1rem;"></i>
+                    <h3>Mobile First</h3>
+                    <p>All websites are responsive and mobile-optimized</p>
+                </div>
+                
+                <div class="skill-badge slide-up" style="animation-delay: 0.3s;">
+                    <i class="fas fa-code" style="font-size: 2.5rem; color: #45b7d1; margin-bottom: 1rem;"></i>
+                    <h3>Clean Code</h3>
+                    <p>Well-structured, maintainable, and scalable code</p>
+                </div>
+                
+                <div class="skill-badge slide-up" style="animation-delay: 0.4s;">
+                    <i class="fas fa-headset" style="font-size: 2.5rem; color: #ffa726; margin-bottom: 1rem;"></i>
+                    <h3>Great Support</h3>
+                    <p>Ongoing support and maintenance for your projects</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="skills-preview">
+        <div class="container">
+            <div class="project slide-up" style="text-align: center; background: linear-gradient(45deg, #ff6b6b, #4ecdc4); color: white; padding: 4rem 2rem;">
+                <i class="fas fa-handshake" style="font-size: 4rem; margin-bottom: 2rem;"></i>
+                <h2>Ready to Start Your Project?</h2>
+                <p style="font-size: 1.3rem; margin-bottom: 2rem;">Let's work together to bring your vision to life!</p>
+                <div class="hero-buttons">
+                    <a href="https://wa.me/254799590637?text=Hi%20Julie!%20I%20have%20a%20project%20in%20mind" target="_blank" class="btn-secondary" style="color: white; border-color: white;">
+                        <i class="fab fa-whatsapp"></i> Start Project
+                    </a>
+                    <a href="mailto:jbesteduvisuals@outlook.com?subject=New%20Project%20Inquiry" class="btn-secondary" style="color: white; border-color: white;">
+                        <i class="fas fa-envelope"></i> Email Me
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Julie Adul. All rights reserved.</p>
+            <div class="footer-social">
+                <a href="https://github.com/jbestcodes" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/julie-adul" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://wa.me/254799590637" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
