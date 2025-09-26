@@ -241,3 +241,68 @@ window.addEventListener('scroll', function() {
         ticking = true;
     }
 }, {passive: true});
+
+// ========== ENHANCED FORMSPREE FORM HANDLING ==========
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contact-form-element');
+    const submitButton = document.getElementById('submit-button');
+    const formStatus = document.getElementById('form-status');
+    
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent default form submission
+            
+            // Show loading state
+            const originalButtonContent = submitButton.innerHTML;
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitButton.disabled = true;
+            
+            // Show status message
+            formStatus.style.display = 'block';
+            formStatus.style.background = 'linear-gradient(45deg, #4ecdc4, #45b7d1)';
+            formStatus.style.color = 'white';
+            formStatus.innerHTML = '<i class="fas fa-paper-plane"></i> Sending your message...';
+            
+            // Prepare form data
+            const formData = new FormData(form);
+            
+            // Submit to Formspree
+            fetch('https://formspree.io/f/myzdwzgz', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                console.log('Formspree response status:', response.status);
+                if (response.ok) {
+                    // Success
+                    formStatus.style.background = 'linear-gradient(45deg, #2ed573, #7bed9f)';
+                    formStatus.innerHTML = '<i class="fas fa-check-circle"></i> ✅ Message sent successfully! I\'ll get back to you within 24 hours.';
+                    form.reset();
+                    
+                    // Auto-hide success message after 5 seconds
+                    setTimeout(() => {
+                        formStatus.style.display = 'none';
+                    }, 5000);
+                } else {
+                    return response.json().then(data => {
+                        throw new Error(data.error || 'Form submission failed');
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Formspree error:', error);
+                // Error
+                formStatus.style.background = 'linear-gradient(45deg, #ff4757, #ff6b6b)';
+                formStatus.innerHTML = '<i class="fas fa-exclamation-triangle"></i> ❌ Error: ' + error.message + '. Please try again or contact me directly.';
+            })
+            .finally(() => {
+                // Reset button
+                submitButton.innerHTML = originalButtonContent;
+                submitButton.disabled = false;
+            });
+        });
+    }
+});
