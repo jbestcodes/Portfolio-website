@@ -185,3 +185,59 @@ window.addEventListener('scroll', function() {
         navbar.style.backdropFilter = 'blur(10px)';
     }
 });
+
+// ========== MOBILE-SPECIFIC ENHANCEMENTS ==========
+
+// Detect mobile device
+const isMobile = window.innerWidth <= 768;
+
+// Enhanced mobile animations
+if (isMobile) {
+    // Faster animation timings for mobile
+    document.documentElement.style.setProperty('--animation-speed', '0.3s');
+    
+    // Touch-friendly interactions
+    document.addEventListener('touchstart', function() {}, {passive: true});
+    
+    // Mobile-specific particle count (fewer for performance)
+    function createMobileParticles() {
+        const particleContainer = document.createElement('div');
+        particleContainer.className = 'particles';
+        document.body.appendChild(particleContainer);
+
+        for (let i = 0; i < 15; i++) { // Fewer particles on mobile
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 10 + 's';
+            particle.style.animationDuration = (Math.random() * 5 + 5) + 's'; // Faster
+            
+            const colors = ['rgba(255, 107, 107, 0.6)', 'rgba(78, 205, 196, 0.6)', 'rgba(69, 183, 209, 0.6)'];
+            particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+            
+            const size = Math.random() * 4 + 2;
+            particle.style.width = size + 'px';
+            particle.style.height = size + 'px';
+            
+            particleContainer.appendChild(particle);
+        }
+    }
+    
+    // Replace desktop particles with mobile-optimized ones
+    createMobileParticles();
+}
+
+// Mobile scroll performance
+let ticking = false;
+function updateOnScroll() {
+    // Your scroll animations here
+    ticking = false;
+}
+
+window.addEventListener('scroll', function() {
+    if (!ticking) {
+        requestAnimationFrame(updateOnScroll);
+        ticking = true;
+    }
+}, {passive: true});
