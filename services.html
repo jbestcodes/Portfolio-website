@@ -7,9 +7,6 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <script src="https://js.paystack.co/v1/inline.js"></script>
-    <script src="js/payment-handler.js"></script>
-    <script src="js/payment-process.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -80,8 +77,8 @@
                         <a href="contact.html?service=static-website" class="btn-primary">
                             <i class="fas fa-paper-plane"></i> Contact
                         </a>
-                        <button onclick="showPaymentModal('Static Website', 200)" class="btn-secondary">
-                            <i class="fas fa-shopping-cart"></i> Book Now
+                        <button onclick="showPaymentModal('Static Website', 200)" class="btn-payment">
+                            <i class="fas fa-shopping-cart"></i> Book Service
                         </button>
                     </div>
                 </div>
@@ -315,6 +312,9 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Payment Scripts -->
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+    <script src="js/payment-handler.js"></script>
+    <script src="js/payment-process.js"></script>
 </body>
 </html>
