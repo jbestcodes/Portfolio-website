@@ -6,7 +6,6 @@
     <title>Services | Julie Adul</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
     <!-- Navigation -->
@@ -46,11 +45,6 @@
                     </a>
                 </div>
             </div>
-            <div class="slide-right">
-                <div class="skill-badge" style="font-size: 3rem; width: 200px; height: 200px; display: flex; align-items: center; justify-content: center;">
-                    <i class="fas fa-laptop-code" style="font-size: 4rem; color: #ff6b6b;"></i>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -60,23 +54,19 @@
             <h2 class="slide-up">What I Offer</h2>
             <div class="projects-list">
                 <!-- Static Websites -->
-                <div class="project slide-up" style="animation-delay: 0.1s;">
+                <div class="project slide-up">
                     <div class="project-icon">
-                        <i class="fas fa-globe" style="font-size: 3rem; color: #ff6b6b; margin-bottom: 1rem;"></i>
+                        <i class="fas fa-globe" style="font-size: 3rem; color: #800020;"></i>
                     </div>
-                    <h3>🌐 Static Websites</h3>
+                    <h3>Static Websites</h3>
                     <p>Fast, secure, and SEO-friendly static websites perfect for businesses, portfolios, and landing pages.</p>
                     <ul class="service-features">
                         <li>✅ Responsive design for all devices</li>
                         <li>✅ Lightning-fast loading speed</li>
                         <li>✅ SEO optimized</li>
                         <li>✅ Easy content management</li>
-                        <li>✅ Free hosting setup</li>
                     </ul>
                     <div class="project-buttons">
-                        <a href="contact.html?service=static-website" class="btn-primary">
-                            <i class="fas fa-paper-plane"></i> Contact
-                        </a>
                         <button onclick="showPaymentModal('Static Website', 200)" class="btn-payment">
                             <i class="fas fa-shopping-cart"></i> Book Now
                         </button>
@@ -84,207 +74,27 @@
                 </div>
 
                 <!-- Web Applications -->
-                <div class="project slide-up" style="animation-delay: 0.2s;">
+                <div class="project slide-up">
                     <div class="project-icon">
-                        <i class="fas fa-desktop" style="font-size: 3rem; color: #4ecdc4; margin-bottom: 1rem;"></i>
+                        <i class="fas fa-laptop-code" style="font-size: 3rem; color: #800020;"></i>
                     </div>
-                    <h3>💻 Full-Stack Web Applications</h3>
-                    <p>Dynamic, interactive web applications with React frontend, Node.js/Python backend, and database integration.</p>
+                    <h3>Web Applications</h3>
+                    <p>Custom web applications with React frontend and Node.js/Python backend.</p>
                     <ul class="service-features">
-                        <li>✅ React frontend development</li>
-                        <li>✅ Node.js/Python backend</li>
-                        <li>✅ User authentication & profiles</li>
-                        <li>✅ Database integration (MongoDB, MySQL, Firebase)</li>
-                        <li>✅ Real-time features</li>
-                        <li>✅ Admin dashboards</li>
+                        <li>✅ Full-stack development</li>
+                        <li>✅ Database integration</li>
+                        <li>✅ User authentication</li>
+                        <li>✅ API development</li>
                     </ul>
                     <div class="project-buttons">
-                        <a href="contact.html?service=web-application" class="btn-primary">
-                            <i class="fas fa-rocket"></i> Let's Build
-                        </a>
-                    </div>
-                </div>
-
-                <!-- E-commerce Solutions -->
-                <div class="project slide-up" style="animation-delay: 0.3s;">
-                    <div class="project-icon">
-                        <i class="fas fa-shopping-cart" style="font-size: 3rem; color: #45b7d1; margin-bottom: 1rem;"></i>
-                    </div>
-                    <h3>🛒 E-commerce Solutions</h3>
-                    <p>Complete online stores with payment processing, inventory management, and customer accounts.</p>
-                    <ul class="service-features">
-                        <li>✅ Secure payment integration</li>
-                        <li>✅ Inventory management</li>
-                        <li>✅ Order tracking system</li>
-                        <li>✅ Customer accounts</li>
-                        <li>✅ Mobile-friendly checkout</li>
-                    </ul>
-                    <div class="project-buttons">
-                        <a href="contact.html?service=ecommerce" class="btn-primary">
-                            <i class="fas fa-store"></i> Start Selling
-                        </a>
-                    </div>
-                </div>
-
-                <!-- UI/UX Design -->
-                <div class="project slide-up" style="animation-delay: 0.4s;">
-                    <div class="project-icon">
-                        <i class="fas fa-paint-brush" style="font-size: 3rem; color: #ffa726; margin-bottom: 1rem;"></i>
-                    </div>
-                    <h3>🎨 UI/UX Design</h3>
-                    <p>Beautiful, user-friendly designs that convert visitors into customers and enhance user experience.</p>
-                    <ul class="service-features">
-                        <li>✅ Modern, clean designs</li>
-                        <li>✅ User experience research</li>
-                        <li>✅ Interactive prototypes</li>
-                        <li>✅ Brand consistency</li>
-                        <li>✅ Mobile-first approach</li>
-                    </ul>
-                    <div class="project-buttons">
-                        <a href="contact.html?service=ui-ux-design" class="btn-primary">
-                            <i class="fas fa-palette"></i> Design Now
-                        </a>
-                    </div>
-                </div>
-
-                <!-- API Development -->
-                <div class="project slide-up" style="animation-delay: 0.5s;">
-                    <div class="project-icon">
-                        <i class="fas fa-code" style="font-size: 3rem; color: #9b59b6; margin-bottom: 1rem;"></i>
-                    </div>
-                    <h3>🔗 API Development</h3>
-                    <p>Custom REST APIs built with Node.js and Python to connect your applications with databases, third-party services, and mobile apps.</p>
-                    <ul class="service-features">
-                        <li>✅ RESTful API design</li>
-                        <li>✅ Node.js & Python backends</li>
-                        <li>✅ Database integration (MongoDB, MySQL, Firebase)</li>
-                        <li>✅ Authentication & security</li>
-                        <li>✅ API documentation</li>
-                        <li>✅ Performance optimization</li>
-                    </ul>
-                    <div class="project-buttons">
-                        <a href="contact.html?service=api-development" class="btn-primary">
-                            <i class="fas fa-plug"></i> Connect APIs
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Website Maintenance -->
-                <div class="project slide-up" style="animation-delay: 0.6s;">
-                    <div class="project-icon">
-                        <i class="fas fa-tools" style="font-size: 3rem; color: #e74c3c; margin-bottom: 1rem;"></i>
-                    </div>
-                    <h3>🔧 Website Maintenance</h3>
-                    <p>Keep your website running smoothly with regular updates, security patches, and performance optimization.</p>
-                    <ul class="service-features">
-                        <li>✅ Regular security updates</li>
-                        <li>✅ Performance monitoring</li>
-                        <li>✅ Backup management</li>
-                        <li>✅ Content updates</li>
-                        <li>✅ 24/7 support</li>
-                    </ul>
-                    <div class="project-buttons">
-                        <a href="contact.html?service=maintenance" class="btn-primary">
-                            <i class="fas fa-shield-alt"></i> Get Support
-                        </a>
+                        <button onclick="showPaymentModal('Web Application', 500)" class="btn-payment">
+                            <i class="fas fa-shopping-cart"></i> Book Now
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Technology Stack -->
-    <section class="skills-preview">
-        <div class="container">
-            <h2 class="slide-up">Technologies I Use</h2>
-            
-            <!-- Frontend Technologies -->
-            <h3 class="slide-up" style="text-align: center; color: #ff6b6b; margin-bottom: 2rem;">Frontend Development</h3>
-            <div class="skills-grid">
-                <div class="skill-badge slide-up" style="animation-delay: 0.1s;">
-                    <i class="fab fa-html5" style="color:#e44d26; font-size: 2.5rem; margin-bottom: 10px;"></i>
-                    HTML5
-                </div>
-                <div class="skill-badge slide-up" style="animation-delay: 0.2s;">
-                    <i class="fab fa-css3-alt" style="color:#2965f1; font-size: 2.5rem; margin-bottom: 10px;"></i>
-                    CSS3
-                </div>
-                <div class="skill-badge slide-up" style="animation-delay: 0.3s;">
-                    <i class="fab fa-js-square" style="color:#f7df1e; font-size: 2.5rem; margin-bottom: 10px;"></i>
-                    JavaScript
-                </div>
-                <div class="skill-badge slide-up" style="animation-delay: 0.4s;">
-                    <i class="fab fa-react" style="color:#61dafb; font-size: 2.5rem; margin-bottom: 10px;"></i>
-                    React
-                </div>
-            </div>
-
-            <!-- Backend Technologies -->
-            <h3 class="slide-up" style="text-align: center; color: #4ecdc4; margin: 3rem 0 2rem;">Backend Development</h3>
-            <div class="skills-grid">
-                <div class="skill-badge slide-up" style="animation-delay: 0.1s;">
-                    <i class="fab fa-node-js" style="color:#339933; font-size: 2.5rem; margin-bottom: 10px;"></i>
-                    Node.js
-                </div>
-                <div class="skill-badge slide-up" style="animation-delay: 0.2s;">
-                    <i class="fab fa-python" style="color:#3776ab; font-size: 2.5rem; margin-bottom: 10px;"></i>
-                    Python
-                </div>
-                <div class="skill-badge slide-up" style="animation-delay: 0.3s;">
-                    <i class="fas fa-server" style="color:#ff6b6b; font-size: 2.5rem; margin-bottom: 10px;"></i>
-                    REST APIs
-                </div>
-            </div>
-
-            <!-- Database Technologies -->
-            <h3 class="slide-up" style="text-align: center; color: #45b7d1; margin: 3rem 0 2rem;">Database Management</h3>
-            <div class="skills-grid">
-                <div class="skill-badge slide-up" style="animation-delay: 0.1s;">
-                    <i class="fas fa-database" style="color:#ffa000; font-size: 2.5rem; margin-bottom: 10px;"></i>
-                    Firebase
-                </div>
-                <div class="skill-badge slide-up" style="animation-delay: 0.2s;">
-                    <i class="fas fa-leaf" style="color:#4DB33D; font-size: 2.5rem; margin-bottom: 10px;"></i>
-                    MongoDB
-                </div>
-                <div class="skill-badge slide-up" style="animation-delay: 0.3s;">
-                    <i class="fas fa-database" style="color:#00758F; font-size: 2.5rem; margin-bottom: 10px;"></i>
-                    MySQL
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Call to Action -->
-    <section class="skills-preview">
-        <div class="container">
-            <div class="project slide-up" style="text-align: center; background: linear-gradient(45deg, #ff6b6b, #4ecdc4); color: white; padding: 4rem 2rem;">
-                <i class="fas fa-rocket" style="font-size: 4rem; margin-bottom: 2rem;"></i>
-                <h2>Ready to Start Your Project?</h2>
-                <p style="font-size: 1.3rem; margin-bottom: 2rem;">Let's discuss your requirements and bring your vision to life!</p>
-                <div class="hero-buttons">
-                    <a href="contact.html" class="btn-secondary" style="background: white !important; color: #ff6b6b !important; border: 2px solid white !important;">
-                        <i class="fas fa-comments"></i> Get Free Quote
-                    </a>
-                    <a href="https://wa.me/254799590637?text=Hi%20Julie!%20I%27m%20interested%20in%20your%20web%20development%20services" target="_blank" class="btn-secondary" style="background: white !important; color: #ff6b6b !important; border: 2px solid white !important;">
-                        <i class="fab fa-whatsapp"></i> Quick Chat
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Julie Adul. All rights reserved.</p>
-            <div class="footer-social">
-                <a href="https://github.com/jbestcodes" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/julie-adul" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://wa.me/254799590637" target="_blank"><i class="fab fa-whatsapp"></i></a>
-            </div>
-        </div>
-    </footer>
 
     <!-- Payment Modal -->
     <div id="paymentModal" class="payment-modal" style="display: none;">
@@ -301,9 +111,6 @@
                     <button type="button" onclick="processPayment('card')" class="btn-payment">
                         <i class="fas fa-credit-card"></i> Pay with Card
                     </button>
-                    <button type="button" onclick="processPayment('transfer')" class="btn-payment">
-                        <i class="fas fa-phone"></i> Pay via Phone
-                    </button>
                 </div>
                 <button type="button" onclick="closePaymentModal()" class="btn-close">
                     <i class="fas fa-times"></i> Close
@@ -312,7 +119,20 @@
         </div>
     </div>
 
-    <!-- Payment Scripts -->
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Julie Adul. All rights reserved.</p>
+            <div class="footer-social">
+                <a href="https://github.com/jbestcodes" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/julie-adul" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://wa.me/254799590637" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
     <script src="https://js.paystack.co/v1/inline.js"></script>
     <script src="./js/payment-handler.js"></script>
     <script src="./js/payment-process.js"></script>
