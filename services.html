@@ -67,7 +67,7 @@
                         <li>✅ Easy content management</li>
                     </ul>
                     <div class="project-buttons">
-                        <button onclick="showPaymentModal('Static Website', 200)" class="btn-payment">
+                        <button onclick="showPaymentModal('Static Website', 10)" class="btn-payment">
                             <i class="fas fa-shopping-cart"></i> Book Now
                         </button>
                     </div>
@@ -87,7 +87,87 @@
                         <li>✅ API development</li>
                     </ul>
                     <div class="project-buttons">
-                        <button onclick="showPaymentModal('Web Application', 500)" class="btn-payment">
+                        <button onclick="showPaymentModal('Web Application', 10)" class="btn-payment">
+                            <i class="fas fa-shopping-cart"></i> Book Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- E-commerce Solutions -->
+                <div class="project slide-up">
+                    <div class="project-icon">
+                        <i class="fas fa-shopping-cart" style="font-size: 3rem; color: #800020;"></i>
+                    </div>
+                    <h3>E-commerce Solutions</h3>
+                    <p>Complete online stores with payment processing, inventory management, and customer accounts.</p>
+                    <ul class="service-features">
+                        <li>✅ Secure payment integration</li>
+                        <li>✅ Inventory management</li>
+                        <li>✅ Order tracking system</li>
+                        <li>✅ Customer accounts</li>
+                    </ul>
+                    <div class="project-buttons">
+                        <button onclick="showPaymentModal('E-commerce Website', 10)" class="btn-payment">
+                            <i class="fas fa-shopping-cart"></i> Book Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- UI/UX Design -->
+                <div class="project slide-up">
+                    <div class="project-icon">
+                        <i class="fas fa-paint-brush" style="font-size: 3rem; color: #800020;"></i>
+                    </div>
+                    <h3>UI/UX Design</h3>
+                    <p>Beautiful, user-friendly designs that convert visitors into customers.</p>
+                    <ul class="service-features">
+                        <li>✅ Modern, clean designs</li>
+                        <li>✅ User experience research</li>
+                        <li>✅ Interactive prototypes</li>
+                        <li>✅ Brand consistency</li>
+                    </ul>
+                    <div class="project-buttons">
+                        <button onclick="showPaymentModal('UI/UX Design', 10)" class="btn-payment">
+                            <i class="fas fa-shopping-cart"></i> Book Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- API Development -->
+                <div class="project slide-up">
+                    <div class="project-icon">
+                        <i class="fas fa-code" style="font-size: 3rem; color: #800020;"></i>
+                    </div>
+                    <h3>API Development</h3>
+                    <p>Custom REST APIs with Node.js and Python, database integration.</p>
+                    <ul class="service-features">
+                        <li>✅ RESTful API design</li>
+                        <li>✅ Database integration</li>
+                        <li>✅ Authentication & security</li>
+                        <li>✅ API documentation</li>
+                    </ul>
+                    <div class="project-buttons">
+                        <button onclick="showPaymentModal('API Development', 10)" class="btn-payment">
+                            <i class="fas fa-shopping-cart"></i> Book Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Website Maintenance -->
+                <div class="project slide-up">
+                    <div class="project-icon">
+                        <i class="fas fa-tools" style="font-size: 3rem; color: #800020;"></i>
+                    </div>
+                    <h3>Website Maintenance</h3>
+                    <p>Keep your website running smoothly with regular updates and optimization.</p>
+                    <ul class="service-features">
+                        <li>✅ Regular security updates</li>
+                        <li>✅ Performance monitoring</li>
+                        <li>✅ Backup management</li>
+                        <li>✅ Content updates</li>
+                    </ul>
+                    <div class="project-buttons">
+                        <button onclick="showPaymentModal('Website Maintenance', 10)" class="btn-payment">
                             <i class="fas fa-shopping-cart"></i> Book Now
                         </button>
                     </div>
@@ -99,19 +179,49 @@
     <!-- Payment Modal -->
     <div id="paymentModal" class="payment-modal" style="display: none;">
         <div class="modal-content">
-            <h3>Payment Details</h3>
+            <h3>Book Service</h3>
+            <div class="service-summary">
+                <p>Selected Service: <span id="selectedService" class="highlight"></span></p>
+                <p>Amount: KES <span id="selectedAmount" class="highlight"></span></p>
+            </div>
             <form id="paymentForm" onsubmit="return false;">
-                <div class="form-group">
-                    <input type="email" id="email" placeholder="Email Address" required>
+                <!-- Contact Details Section -->
+                <div class="contact-details">
+                    <div class="form-group">
+                        <i class="fas fa-envelope form-icon"></i>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            placeholder="Your Email Address" 
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <i class="fas fa-phone form-icon"></i>
+                        <input 
+                            type="tel" 
+                            id="phone" 
+                            placeholder="Phone Number (254712345678)" 
+                            required
+                        >
+                    </div>
                 </div>
-                <div class="form-group">
-                    <input type="tel" id="phone" placeholder="Phone Number (e.g., 254712345678)" required>
-                </div>
-                <div class="payment-buttons">
-                    <button type="button" onclick="processPayment('card')" class="btn-payment">
+
+                <!-- Payment Method Buttons -->
+                <div class="payment-method-buttons">
+                    <button type="button" onclick="showPaymentSection('mpesa')" class="btn-method" id="mpesaBtn">
+                        <i class="fas fa-mobile-alt"></i> Pay with M-Pesa
+                    </button>
+                    <button type="button" onclick="showPaymentSection('card')" class="btn-method" id="cardBtn">
                         <i class="fas fa-credit-card"></i> Pay with Card
                     </button>
                 </div>
+
+                <!-- Payment Button -->
+                <button type="button" onclick="processPayment()" class="btn-payment" id="payButton" style="display: none;">
+                    <i class="fas fa-lock"></i> Complete Payment
+                </button>
+
                 <button type="button" onclick="closePaymentModal()" class="btn-close">
                     <i class="fas fa-times"></i> Close
                 </button>
@@ -132,9 +242,9 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <script src="https://js.paystack.co/v1/inline.js"></script>
-    <script src="./js/payment-handler.js"></script>
-    <script src="./js/payment-process.js"></script>
+    <script src="./js/payment-handler.js" defer></script>
+    <script src="./js/payment-process.js" defer></script>
 </body>
 </html>

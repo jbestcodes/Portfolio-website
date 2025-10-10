@@ -1192,7 +1192,7 @@ body {
 
 /* Payment Button Styles */
 .btn-payment {
-    background: var(--primary-color);
+    background: var(--primary-color, #800020);
     color: white;
     border: none;
     padding: 12px 25px;
@@ -1204,11 +1204,13 @@ body {
     gap: 8px;
     transition: all 0.3s ease;
     margin-top: 1rem;
+    font-size: 1rem;
 }
 
 .btn-payment:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(128, 0, 32, 0.2);
+    background: var(--dark-maroon, #600018);
 }
 
 .btn-payment i {
@@ -1220,4 +1222,203 @@ body {
     gap: 1rem;
     justify-content: center;
     margin-top: 1.5rem;
+}
+
+/* Service Features Styles */
+.service-features {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+}
+
+.service-features li {
+    padding: 0.5rem 0;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+/* Payment Modal Styles */
+.payment-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.service-summary {
+    background: rgba(128, 0, 32, 0.1);
+    padding: 1rem;
+    border-radius: 10px;
+    margin: 1rem 0;
+}
+
+.service-summary p {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.highlight {
+    color: var(--primary-color, #800020);
+    font-weight: 600;
+}
+
+/* Email Field Styles */
+.form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.form-group input[type="email"] {
+    width: 100%;
+    padding: 12px 40px;
+    border: 2px solid #ddd;
+    border-radius: 25px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input[type="email"]:focus {
+    border-color: var(--primary-color, #800020);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(128, 0, 32, 0.1);
+}
+
+.form-group input[type="email"]:valid {
+    border-color: #4CAF50;
+}
+
+.form-group input[type="email"]:invalid:not(:placeholder-shown) {
+    border-color: #f44336;
+}
+
+.form-error {
+    display: none;
+    color: #f44336;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    margin-left: 15px;
+}
+
+.form-group input:invalid:not(:placeholder-shown) + .form-error {
+    display: block;
+}
+
+/* Contact Details Section */
+.contact-details {
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 40px;
+    border: 2px solid #ddd;
+    border-radius: 25px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: var(--primary-color, #800020);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(128, 0, 32, 0.1);
+}
+
+#payButton {
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background: var(--primary-color, #800020);
+}
+
+#payButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(128, 0, 32, 0.2);
+}
+
+/* Payment Status Modal */
+.status-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    animation: slideIn 0.3s ease;
+}
+
+.status-content.success {
+    border-top: 5px solid #4CAF50;
+}
+
+.status-content.failed {
+    border-top: 5px solid #f44336;
+}
+
+.status-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Thank You Page Styles */
+.thank-you-content {
+    text-align: center;
+    padding: 3rem;
+    max-width: 600px;
+    margin: 2rem auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.success-message i,
+.error-message i {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.success-message i {
+    color: #4CAF50;
+}
+
+.error-message i {
+    color: #f44336;
+}
+
+.thank-you-content h1 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.thank-you-content p {
+    margin: 0.5rem 0;
+    color: #666;
 }

@@ -26,29 +26,44 @@
         </div>
     </nav>
 
-    <!-- Thank You Hero -->
-    <section class="hero">
-        <div class="hero-container" style="text-align: center;">
-            <div class="hero-content">
-                <div class="skill-badge" style="font-size: 4rem; width: 150px; height: 150px; margin: 0 auto 2rem; display: flex; align-items: center; justify-content: center;">
-                    <i class="fas fa-check-circle" style="font-size: 4rem; color: #4ecdc4;"></i>
-                </div>
-                <h1>Thank You!</h1>
-                <p class="hero-tagline">
-                    <span class="highlight">Your message has been sent successfully!</span><br>
-                    I'll get back to you within 24 hours.
-                </p>
-                <div class="hero-buttons">
-                    <a href="index.html" class="btn-primary">
-                        <i class="fas fa-home"></i> Back to Home
-                    </a>
-                    <a href="projects.html" class="btn-secondary">
-                        <i class="fas fa-eye"></i> View My Work
-                    </a>
-                </div>
-            </div>
+    <div class="container">
+        <div class="thank-you-content" id="thankYouContent">
+            <!-- Content will be populated by JavaScript -->
         </div>
-    </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const reference = urlParams.get('ref');
+            
+            const payment = PaymentStore.get(reference);
+            const content = document.getElementById('thankYouContent');
+
+            if (payment && payment.status === 'success') {
+                content.innerHTML = `
+                    <div class="success-message">
+                        <i class="fas fa-check-circle"></i>
+                        <h1>Thank You!</h1>
+                        <p>Your payment for ${payment.service} was successful.</p>
+                        <p>Reference: ${reference}</p>
+                        <p>Amount: KES ${payment.amount}</p>
+                        <p>We've sent a confirmation email to ${payment.email}</p>
+                        <a href="index.html" class="btn-primary">Return Home</a>
+                    </div>
+                `;
+            } else {
+                content.innerHTML = `
+                    <div class="error-message">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <h1>Payment Verification Failed</h1>
+                        <p>We couldn't verify your payment. Please contact support.</p>
+                        <a href="contact.html" class="btn-primary">Contact Support</a>
+                    </div>
+                `;
+            }
+        });
+    </script>
 
     <!-- Footer -->
     <footer class="footer">
