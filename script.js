@@ -306,3 +306,34 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// Paystack Payment Integration
+function initializePayment(amount, email, service) {
+    let handler = PaystackPop.setup({
+        key: PAYSTACK_PUBLIC_KEY, // From config.js
+        email: email,
+        amount: amount * 100, // Convert to kobo
+        currency: 'KES',
+        ref: 'JA_'+Math.floor((Math.random() * 1000000000) + 1),
+        metadata: {
+            service_name: service,
+        },
+        callback: function(response) {
+            // Payment successful
+            window.location.href = `thankyou.html?reference=${response.reference}`;
+        },
+        onClose: function() {
+            // User closed payment modal
+            alert('Transaction cancelled');
+        }
+    });
+    handler.openIframe();
+}
+
+// Handle service booking
+function bookService(service, amount) {
+    const email = document.getElementById('email').value || prompt("Please enter your email to continue:");
+    if (email) {
+        initializePayment(amount, email, service);
+    }
+}

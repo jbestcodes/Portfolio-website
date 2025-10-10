@@ -6,6 +6,10 @@
     <title>Services | Julie Adul</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+    <script src="js/payment-handler.js"></script>
+    <script src="js/payment-process.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -74,8 +78,11 @@
                     </ul>
                     <div class="project-buttons">
                         <a href="contact.html?service=static-website" class="btn-primary">
-                            <i class="fas fa-paper-plane"></i> Get Started
+                            <i class="fas fa-paper-plane"></i> Contact
                         </a>
+                        <button onclick="showPaymentModal('Static Website', 200)" class="btn-secondary">
+                            <i class="fas fa-shopping-cart"></i> Book Now
+                        </button>
                     </div>
                 </div>
 
@@ -281,6 +288,32 @@
             </div>
         </div>
     </footer>
+
+    <!-- Payment Modal -->
+    <div id="paymentModal" class="payment-modal" style="display: none;">
+        <div class="modal-content">
+            <h3>Payment Details</h3>
+            <form id="paymentForm" onsubmit="return false;">
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Email Address" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="phone" placeholder="Phone Number (e.g., 254712345678)" required>
+                </div>
+                <div class="payment-buttons">
+                    <button type="button" onclick="processPayment('card')" class="btn-payment">
+                        <i class="fas fa-credit-card"></i> Pay with Card
+                    </button>
+                    <button type="button" onclick="processPayment('transfer')" class="btn-payment">
+                        <i class="fas fa-phone"></i> Pay via Phone
+                    </button>
+                </div>
+                <button type="button" onclick="closePaymentModal()" class="btn-close">
+                    <i class="fas fa-times"></i> Close
+                </button>
+            </form>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
