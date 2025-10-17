@@ -16,78 +16,194 @@ const PaymentStore = {
     }
 };
 
-function initializePaystack(email, phone, amount, service) {
+let currentService = '';
+let currentAmount = 0;
+
+// Show payment details form
+function initializeDirectPayment(service, amount) {
+    currentService = service;
+    currentAmount = amount; // This will be 0 now
+    showPaymentDetailsForm();
+}
+
+function showPaymentDetailsForm() {
+    // Create modal if it doesn't exist
+    let modal = document.getElementById('paymentDetailsModal');
+    if (!modal) {
+        modal = createPaymentDetailsModal();
+    }
+    
+    // Update only service name (remove amount display)
+    document.getElementById('serviceNameDisplay').textContent = currentService;
+    
+    // Show modal
+    modal.style.display = 'flex';
+}
+
+function createPaymentDetailsModal() {
+    const modal = document.createElement('div');
+    modal.id = 'paymentDetailsModal';
+    modal.className = 'payment-details-modal';
+    modal.innerHTML = `
+        <div class="payment-details-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-credit-card"></i> Complete Your Booking</h3>
+                <button onclick="closePaymentDetailsModal()" class="close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="service-summary">
+                <div class="summary-item">
+                    <span class="label">Service:</span>
+                    <span class="value" id="serviceNameDisplay"></span>
+                </div>
+            </div>
+
+            <form id="paymentDetailsForm" onsubmit="return false;">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="paymentAmount">
+                            <i class="fas fa-dollar-sign"></i> Amount (KES)
+                        </label>
+                        <input type="number" id="paymentAmount" placeholder="Enter amount to pay" min="10" step="1" required>
+                        <span class="field-hint">Minimum amount is KES 10</span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="customerEmail">
+                            <i class="fas fa-envelope"></i> Email Address
+                        </label>
+                        <input type="email" id="customerEmail" placeholder="your@email.com" required>
+                        <span class="field-hint">We'll send your receipt here</span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="customerPhone">
+                            <i class="fas fa-phone"></i> Phone Number
+                        </label>
+                        <input type="tel" id="customerPhone" placeholder="254712345678" required>
+                        <span class="field-hint">For payment notifications</span>
+                    </div>
+                </div>
+
+                <button type="button" onclick="proceedToPayment()" class="proceed-btn">
+                    <i class="fas fa-lock"></i> Proceed to Secure Payment
+                </button>
+            </form>
+        </div>
+    `;
+    
+    document.body.appendChild(modal);
+    return modal;
+}
+
+function closePaymentDetailsModal() {
+    document.getElementById('paymentDetailsModal').style.display = 'none';
+}
+
+function proceedToPayment() {
+    const amount = document.getElementById('paymentAmount').value;
+    const email = document.getElementById('customerEmail').value;
+    const phone = document.getElementById('customerPhone').value;
+
+    // Validate amount
+    if (!amount || amount < 10) {
+        showFieldError('paymentAmount', 'Please enter an amount of at least KES 10');
+        return;
+    }
+
+    if (!validateEmail(email)) {
+        showFieldError('customerEmail', 'Please enter a valid email address');
+        return;
+    }
+
+    if (!validatePhone(phone)) {
+        showFieldError('customerPhone', 'Please enter a valid phone number (e.g., 254712345678)');
+        return;
+    }
+
+    // Update current amount with user input
+    currentAmount = parseFloat(amount);
+
+    // Close the details modal
+    closePaymentDetailsModal();
+
+    // Initialize Paystack payment with user-defined amount
     const handler = PaystackPop.setup({
         key: PAYSTACK_PUBLIC_KEY,
         email: email,
-        amount: amount * 100,
+        amount: currentAmount * 100, // Convert to kobo
         currency: 'KES',
         ref: 'JA_' + Math.floor(Math.random() * 1000000000 + 1),
         metadata: {
-            service_name: service,
-            phone_number: phone
+            service_name: currentService,
+            phone_number: phone,
+            custom_amount: currentAmount
         },
         callback: function(response) {
-            // Store payment details
             PaymentStore.save(response.reference, {
                 status: 'success',
                 email,
                 phone,
-                amount,
-                service
+                amount: currentAmount,
+                service: currentService
             });
 
-            // Show success message
-            showPaymentStatus('success', response.reference);
-
-            // Send confirmation email using EmailJS or similar service
-            sendPaymentConfirmation(email, service, amount, response.reference);
-
-            // Redirect to thank you page
-            setTimeout(() => {
-                window.location.href = `thankyou.html?ref=${response.reference}`;
-            }, 3000);
+            showSuccessMessage(response.reference);
         },
         onClose: function() {
             if (!handler.isSuccessful) {
-                showPaymentStatus('failed');
+                showPaymentCancelledMessage();
             }
         }
     });
+    
     handler.openIframe();
 }
 
-// Email confirmation using EmailJS (you'll need to sign up at emailjs.com)
-function sendPaymentConfirmation(email, service, amount, reference) {
-    emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
-        to_email: email,
-        service_name: service,
-        amount: amount,
-        reference: reference
-    });
-}
-
-function showPaymentStatus(status, reference = '') {
-    const modal = document.getElementById('statusModal') || createStatusModal();
-    const message = status === 'success' 
-        ? `Payment Successful!<br>Reference: ${reference}`
-        : 'Payment Failed. Please try again.';
-    const icon = status === 'success' ? '✅' : '❌';
+function showFieldError(fieldId, message) {
+    const field = document.getElementById(fieldId);
+    field.style.borderColor = '#e74c3c';
     
-    modal.innerHTML = `
-        <div class="status-content ${status}">
-            <div class="status-icon">${icon}</div>
-            <h3>${status === 'success' ? 'Success!' : 'Failed!'}</h3>
-            <p>${message}</p>
-        </div>
-    `;
-    modal.style.display = 'flex';
+    // Remove existing error
+    const existingError = field.parentNode.querySelector('.field-error');
+    if (existingError) existingError.remove();
+    
+    // Add new error
+    const error = document.createElement('span');
+    error.className = 'field-error';
+    error.textContent = message;
+    field.parentNode.appendChild(error);
+    
+    // Focus the field
+    field.focus();
 }
 
-function createStatusModal() {
-    const modal = document.createElement('div');
-    modal.id = 'statusModal';
-    modal.className = 'payment-modal';
-    document.body.appendChild(modal);
-    return modal;
+function showSuccessMessage(reference) {
+    alert(`🎉 Payment Successful!\n\nReference: ${reference}\n\nThank you for your booking! We'll be in touch soon.`);
+    setTimeout(() => {
+        window.location.href = `thankyou.html?ref=${reference}`;
+    }, 2000);
+}
+
+function showPaymentCancelledMessage() {
+    const retry = confirm('Payment was cancelled. Would you like to try again?');
+    if (retry) {
+        showPaymentDetailsForm();
+    }
+}
+
+function validateEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+function validatePhone(phone) {
+    const phoneRegex = /^(?:254|\+254|0)?([71](?:(?:0[0-8])|(?:[12][0-9])|(?:9[0-9])|(?:4[0-134])|(?:5[0-5])|(?:6[0-9])|(?:7[0-9])|(?:8[0-9]))[0-9]{6})$/;
+    return phoneRegex.test(phone);
 }

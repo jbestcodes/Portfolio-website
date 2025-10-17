@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jbestcodes.github.io/Portfolio-website/sitemap.xml

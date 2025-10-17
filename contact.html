@@ -9,6 +9,44 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="https://js.paystack.co/v1/inline.js"></script>
     <script src="js/config.js" type="module"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HYEQH4C6FS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-HYEQH4C6FS');
+    </script>
+
+    <!-- Update these meta tags in index.html -->
+    <link rel="canonical" href="https://jbestcodes.github.io/Portfolio-website/">
+    <meta property="og:url" content="https://jbestcodes.github.io/Portfolio-website/">
+    <meta property="og:image" content="https://jbestcodes.github.io/Portfolio-website/profile.jpg">
+    <meta name="twitter:image" content="https://jbestcodes.github.io/Portfolio-website/profile.jpg">
+
+    <!-- Update Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Julie Adul",
+        "jobTitle": "Full Stack Developer",
+        "description": "Experienced Full Stack Developer specializing in React, Python, WordPress, and modern web development in Kenya.",
+        "url": "https://jbestcodes.github.io/Portfolio-website/",
+        "image": "https://jbestcodes.github.io/Portfolio-website/profile.jpg",
+        "sameAs": [
+            "https://github.com/jbestcodes",
+            "https://www.linkedin.com/in/julie-adul",
+            "https://wa.me/254799590637"
+        ],
+        "knowsAbout": ["React", "Python", "WordPress", "JavaScript", "Node.js", "Firebase", "HTML5", "CSS3", "UI/UX Design"],
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Freelance"
+        }
+    }
+    </script>
 </head>
 <body>
     <!-- Navigation -->
@@ -208,5 +246,27 @@
     </footer>
 
     <script src="script.js"></script>
+
+    <!-- Performance & SEO Script -->
+    <script>
+        // Add loading="lazy" to images after page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('img:not(.profile-pic)');
+            images.forEach(img => {
+                img.loading = 'lazy';
+            });
+            
+            // Track payment button clicks
+            const paymentButtons = document.querySelectorAll('.btn-payment');
+            paymentButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    gtag('event', 'click', {
+                        'event_category': 'Payment',
+                        'event_label': 'Book Service Button'
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>

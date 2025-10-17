@@ -4,6 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services | Julie Adul</title>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HYEQH4C6FS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-HYEQH4C6FS');
+    </script>
+    
+    <!-- Update these meta tags in index.html -->
+    <link rel="canonical" href="https://jbestcodes.github.io/Portfolio-website/">
+    <meta property="og:url" content="https://jbestcodes.github.io/Portfolio-website/">
+    <meta property="og:image" content="https://jbestcodes.github.io/Portfolio-website/profile.jpg">
+    <meta name="twitter:image" content="https://jbestcodes.github.io/Portfolio-website/profile.jpg">
+
+    <!-- Update Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Julie Adul",
+        "jobTitle": "Full Stack Developer",
+        "description": "Experienced Full Stack Developer specializing in React, Python, WordPress, and modern web development in Kenya.",
+        "url": "https://jbestcodes.github.io/Portfolio-website/",
+        "image": "https://jbestcodes.github.io/Portfolio-website/profile.jpg",
+        "sameAs": [
+            "https://github.com/jbestcodes",
+            "https://www.linkedin.com/in/julie-adul",
+            "https://wa.me/254799590637"
+        ],
+        "knowsAbout": ["React", "Python", "WordPress", "JavaScript", "Node.js", "Firebase", "HTML5", "CSS3", "UI/UX Design"],
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Freelance"
+        }
+    }
+    </script>
+
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -67,7 +106,7 @@
                         <li>✅ Easy content management</li>
                     </ul>
                     <div class="project-buttons">
-                        <button onclick="showPaymentModal('Static Website', 10)" class="btn-payment">
+                        <button onclick="initializeDirectPayment('Static Website', 0)" class="btn-payment">
                             <i class="fas fa-shopping-cart"></i> Book Now
                         </button>
                     </div>
@@ -87,7 +126,7 @@
                         <li>✅ API development</li>
                     </ul>
                     <div class="project-buttons">
-                        <button onclick="showPaymentModal('Web Application', 10)" class="btn-payment">
+                        <button onclick="initializeDirectPayment('Web Application', 0)" class="btn-payment">
                             <i class="fas fa-shopping-cart"></i> Book Now
                         </button>
                     </div>
@@ -172,62 +211,48 @@
                         </button>
                     </div>
                 </div>
+
+                <!-- WordPress Development Service -->
+                <div class="project slide-up">
+                    <div class="project-icon">
+                        <i class="fab fa-wordpress" style="font-size: 3rem; color: #21759b;"></i>
+                    </div>
+                    <h3>🎨 WordPress Development</h3>
+                    <p>Custom WordPress websites, themes, and plugins tailored to your business needs.</p>
+                    <ul class="service-features">
+                        <li>✅ Custom theme development</li>
+                        <li>✅ Plugin customization</li>
+                        <li>✅ E-commerce integration (WooCommerce)</li>
+                        <li>✅ SEO optimization</li>
+                        <li>✅ Content management training</li>
+                        <li>✅ Website maintenance</li>
+                    </ul>
+                    <div class="project-buttons">
+                        <button onclick="initializeDirectPayment('WordPress Website', 0)" class="btn-payment">
+                            <i class="fas fa-shopping-cart"></i> Book Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add this new section after the Database Technologies -->
+            <h3 class="slide-up" style="text-align: center; color: #21759b; margin: 3rem 0 2rem;">Content Management</h3>
+            <div class="skills-grid">
+                <div class="skill-badge slide-up" style="animation-delay: 0.1s;">
+                    <i class="fab fa-wordpress" style="color:#21759b; font-size: 2.5rem; margin-bottom: 10px;"></i>
+                    WordPress
+                </div>
+                <div class="skill-badge slide-up" style="animation-delay: 0.2s;">
+                    <i class="fas fa-edit" style="color:#ff6b6b; font-size: 2.5rem; margin-bottom: 10px;"></i>
+                    Custom Themes
+                </div>
+                <div class="skill-badge slide-up" style="animation-delay: 0.3s;">
+                    <i class="fas fa-plug" style="color:#4ecdc4; font-size: 2.5rem; margin-bottom: 10px;"></i>
+                    Plugin Development
+                </div>
             </div>
         </div>
     </section>
-
-    <!-- Payment Modal -->
-    <div id="paymentModal" class="payment-modal" style="display: none;">
-        <div class="modal-content">
-            <h3>Book Service</h3>
-            <div class="service-summary">
-                <p>Selected Service: <span id="selectedService" class="highlight"></span></p>
-                <p>Amount: KES <span id="selectedAmount" class="highlight"></span></p>
-            </div>
-            <form id="paymentForm" onsubmit="return false;">
-                <!-- Contact Details Section -->
-                <div class="contact-details">
-                    <div class="form-group">
-                        <i class="fas fa-envelope form-icon"></i>
-                        <input 
-                            type="email" 
-                            id="email" 
-                            placeholder="Your Email Address" 
-                            required
-                        >
-                    </div>
-                    <div class="form-group">
-                        <i class="fas fa-phone form-icon"></i>
-                        <input 
-                            type="tel" 
-                            id="phone" 
-                            placeholder="Phone Number (254712345678)" 
-                            required
-                        >
-                    </div>
-                </div>
-
-                <!-- Payment Method Buttons -->
-                <div class="payment-method-buttons">
-                    <button type="button" onclick="showPaymentSection('mpesa')" class="btn-method" id="mpesaBtn">
-                        <i class="fas fa-mobile-alt"></i> Pay with M-Pesa
-                    </button>
-                    <button type="button" onclick="showPaymentSection('card')" class="btn-method" id="cardBtn">
-                        <i class="fas fa-credit-card"></i> Pay with Card
-                    </button>
-                </div>
-
-                <!-- Payment Button -->
-                <button type="button" onclick="processPayment()" class="btn-payment" id="payButton" style="display: none;">
-                    <i class="fas fa-lock"></i> Complete Payment
-                </button>
-
-                <button type="button" onclick="closePaymentModal()" class="btn-close">
-                    <i class="fas fa-times"></i> Close
-                </button>
-            </form>
-        </div>
-    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -246,5 +271,27 @@
     <script src="https://js.paystack.co/v1/inline.js"></script>
     <script src="./js/payment-handler.js" defer></script>
     <script src="./js/payment-process.js" defer></script>
+
+    <!-- Performance & SEO Script -->
+    <script>
+        // Add loading="lazy" to images after page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('img:not(.profile-pic)');
+            images.forEach(img => {
+                img.loading = 'lazy';
+            });
+            
+            // Track payment button clicks
+            const paymentButtons = document.querySelectorAll('.btn-payment');
+            paymentButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    gtag('event', 'click', {
+                        'event_category': 'Payment',
+                        'event_label': 'Book Service Button'
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
