@@ -16,6 +16,14 @@ document.addEventListener('DOMContentLoaded', function() {
         navMenu.classList.remove("active");
     }));
 
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }
+    });
+
     // ========== TYPING ANIMATION ==========
     const typingText = document.querySelector('.typing-text');
     if (typingText) {
