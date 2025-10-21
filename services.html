@@ -52,13 +52,6 @@
         <div class="nav-container">
             <div class="nav-logo">Julie Adul</div>
             
-            <!-- Add the hamburger menu -->
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-            
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="about.html" class="nav-link">About</a></li>
@@ -271,9 +264,10 @@
 
     <!-- Scripts -->
     <script src="script.js" defer></script>
+    <!-- Paystack Script FIRST -->
     <script src="https://js.paystack.co/v1/inline.js"></script>
-    <script src="./js/payment-handler.js" defer></script>
-    <script src="./js/payment-process.js" defer></script>
+    <!-- Your Payment Handler Script SECOND -->
+    <script src="js/payment-handler.js"></script>
 
     <!-- Performance & SEO Script -->
     <script>
