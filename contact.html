@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="https://js.paystack.co/v1/inline.js"></script>
-    <script src="js/config.js" type="module"></script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HYEQH4C6FS"></script>
@@ -159,23 +159,59 @@
                     <div class="form-row">
                         <div class="form-group">
                             <input type="text" name="name" placeholder="Your Name" required>
-                            <i class="fas fa-user form-icon"></i>
                         </div>
                         
                         <div class="form-group">
                             <input type="email" name="_replyto" placeholder="Your Email" required>
-                            <i class="fas fa-envelope form-icon"></i>
                         </div>
                     </div>
                     
+                    <!-- Inquiry Type Dropdown (serves as subject) -->
                     <div class="form-group">
-                        <input type="text" name="subject" placeholder="Subject" required>
-                        <i class="fas fa-tag form-icon"></i>
+                        <select name="inquiry_type" id="inquiry-type" required>
+                            <option value="" disabled selected>What can I help you with?</option>
+                            <option value="get_quote">💰 Get a Quote</option>
+                            <option value="request_service">🛠️ Request a Service</option>
+                            <option value="project_consultation">💡 Project Consultation</option>
+                            <option value="technical_support">🔧 Technical Support</option>
+                            <option value="website_maintenance">🔄 Website Maintenance</option>
+                            <option value="collaboration">🤝 Partnership/Collaboration</option>
+                            <option value="feedback">💬 Feedback/Suggestion</option>
+                            <option value="report_issue">🐛 Report an Issue</option>
+                            <option value="job_opportunity">💼 Job Opportunity</option>
+                            <option value="general_inquiry">❓ General Inquiry</option>
+                            <option value="other">📝 Other</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Dynamic Budget Field (shows for quotes/services) -->
+                    <div class="form-group" id="budget-field" style="display: none;">
+                        <select name="budget_range" id="budget-range">
+                            <option value="" disabled selected>What's your budget range?</option>
+                            <option value="under_5000">💸 Under KES 5,000</option>
+                            <option value="5000_15000">💰 KES 5,000 - 15,000</option>
+                            <option value="15000_50000">💎 KES 15,000 - 50,000</option>
+                            <option value="50000_100000">🏆 KES 50,000 - 100,000</option>
+                            <option value="100000_plus">🚀 KES 100,000+</option>
+                            <option value="discuss">🤔 Let's Discuss</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Dynamic Timeline Field (shows for projects) -->
+                    <div class="form-group" id="timeline-field" style="display: none;">
+                        <select name="project_timeline" id="project-timeline">
+                            <option value="" disabled selected>When do you need this completed?</option>
+                            <option value="asap">⚡ ASAP (Rush job)</option>
+                            <option value="1_week">📅 Within 1 week</option>
+                            <option value="2_weeks">📆 Within 2 weeks</option>
+                            <option value="1_month">🗓️ Within 1 month</option>
+                            <option value="2_months">📋 Within 2 months</option>
+                            <option value="flexible">🕐 I'm flexible</option>
+                        </select>
                     </div>
                     
                     <div class="form-group">
                         <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
-                        <i class="fas fa-comment form-icon"></i>
                     </div>
                     
                     <button type="submit" class="submit-btn" id="submit-button">
