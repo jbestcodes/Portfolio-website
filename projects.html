@@ -104,16 +104,31 @@
     <section class="skills-preview">
         <div class="container">
             <div class="projects-list">
-                <!-- Update the Chama Vault project description -->
+                <!-- Replace the Chama Vault project (first one) -->
                 <div class="project slide-up" style="animation-delay: 0.1s;">
                     <div class="project-icon">
                         <i class="fas fa-piggy-bank" style="font-size: 3rem; color: #45b7d1; margin-bottom: 1rem;"></i>
                     </div>
                     <h3>🏦 Chama Vault - Founder & Lead Developer</h3>
-                    <p>Founded and developed a modern web app for managing group savings and contributions. Features secure authentication, intuitive dashboards, real-time updates, and <strong>OpenAI-powered smart analytics</strong> for intelligent financial suggestions and automated insights.</p>
-                    <p><strong>Role:</strong> <span class="highlight">Founder & Full Stack Developer</span></p>
-                    <p><strong>Key Features:</strong> <span class="highlight">🧠 OpenAI Smart Analytics, 💡 AI Suggestions, 🔒 Secure Authentication, 📱 Real-time Updates</span></p>
+                    
+                    <div class="project-content">
+                        <p class="project-description-short">
+                            Founded and developed a modern web app for managing group savings and contributions with secure authentication and intuitive dashboards.
+                        </p>
+                        
+                        <div class="project-details" style="display: none;">
+                            <p><strong>Role:</strong> <span class="highlight">Founder & Full Stack Developer</span></p>
+                            <p><strong>Key Features:</strong> <span class="highlight">🧠 OpenAI Smart Analytics, 💡 AI Suggestions, 🔒 Secure Authentication, 📱 Real-time Updates</span></p>
+                            <p>Features real-time updates and <strong>OpenAI-powered smart analytics</strong> for intelligent financial suggestions and automated insights.</p>
+                        </div>
+                    </div>
+                    
                     <p><strong>Tools:</strong> <span class="highlight">React, Firebase, OpenAI API, REST APIs, MySQL, JavaScript, CSS</span></p>
+                    
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">
+                        <i class="fas fa-chevron-down"></i> Read More
+                    </button>
+                    
                     <div class="project-buttons">
                         <a href="https://chama-vault-aiid.vercel.app" target="_blank" class="btn-primary">
                             <i class="fas fa-rocket"></i> Try Live App
@@ -193,6 +208,55 @@
                         </a>
                     </div>
                 </div>
+                
+                <!-- Inserted Projects -->
+                <div class="project slide-up" style="animation-delay: 0.7s;">
+                    <div class="project-icon">
+                        <i class="fas fa-credit-card" style="font-size: 3rem; color: #00c851; margin-bottom: 1rem;"></i>
+                    </div>
+                    <h3>💳 JBestPay - Paystack Integration</h3>
+                    <p>A clean and secure Paystack payment integration form with real-time payment processing, responsive design, and secure transaction handling for seamless online payments.</p>
+                    <p><strong>Tools:</strong> <span class="highlight">HTML5, CSS3, JavaScript, Paystack API, Netlify</span></p>
+                    <div class="project-buttons">
+                        <a href="https://jbestpay.netlify.app/" target="_blank" class="btn-primary">
+                            <i class="fas fa-external-link-alt"></i> Try Payment Demo
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project slide-up" style="animation-delay: 0.8s;">
+                    <div class="project-icon">
+                        <i class="fas fa-robot" style="font-size: 3rem; color: #e74c3c; margin-bottom: 1rem;"></i>
+                    </div>
+                    <h3>🤖 AI Chama - Founder & Lead Developer</h3>
+                    
+                    <div class="project-content">
+                        <p class="project-description-short">
+                            An intelligent AI-powered application for chama groups in Kenya with advanced fraud detection and automated savings management.
+                        </p>
+                        
+                        <div class="project-details" style="display: none;">
+                            <p><strong>Role:</strong> <span class="highlight">Founder & Full Stack Developer</span></p>
+                            <p><strong>Key Features:</strong> <span class="highlight">🛡️ AI Fraud Detection, 🐷 Smart Savings, 📊 Financial Analytics, 👥 Multi-Member System</span></p>
+                            <p>Helps communities build wealth securely and efficiently with intelligent algorithms and machine learning capabilities.</p>
+                        </div>
+                    </div>
+                    
+                    <p><strong>Tools:</strong> <span class="highlight">React.js, Node.js, Python, MongoDB, Scikit-learn, JWT</span></p>
+                    
+                    <button class="read-more-btn" onclick="toggleReadMore(this)">
+                        <i class="fas fa-chevron-down"></i> Read More
+                    </button>
+                    
+                    <div class="project-buttons">
+                        <button class="btn-secondary" disabled style="opacity: 0.6; cursor: not-allowed;">
+                            <i class="fas fa-hourglass-half"></i> Demo Coming Soon
+                        </button>
+                        <a href="contact.html?project=ai-chama" class="btn-primary">
+                            <i class="fas fa-envelope"></i> Learn More
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -243,5 +307,31 @@
             });
         });
     </script>
+
+    <!-- Read More/Less Toggle Script -->
+    <script>
+function toggleReadMore(button) {
+    const projectContent = button.closest('.project').querySelector('.project-content');
+    const details = projectContent.querySelector('.project-details');
+    const icon = button.querySelector('i');
+    const text = button.childNodes[button.childNodes.length - 1]; // Get the text node
+    
+    if (!details.classList.contains('show')) {
+        details.style.display = 'block';
+        details.classList.add('show');
+        button.classList.add('expanded');
+        text.textContent = ' Read Less';
+    } else {
+        details.classList.remove('show');
+        button.classList.remove('expanded');
+        text.textContent = ' Read More';
+        setTimeout(() => {
+            if (!details.classList.contains('show')) {
+                details.style.display = 'none';
+            }
+        }, 400);
+    }
+}
+</script>
 </body>
 </html>
