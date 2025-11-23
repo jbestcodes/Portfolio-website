@@ -83,14 +83,28 @@ document.addEventListener('DOMContentLoaded', function() {
     // ========== FLOATING PARTICLES ==========
     createFloatingParticles();
 
-    // ========== HIGHLIGHT ACTIVE PAGE ==========
+    // ========== ACTIVE NAVIGATION HIGHLIGHTING ==========
+    // Get current page name
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    
+    // Remove active class from all nav links
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
+        link.classList.remove('active');
+        
+        // Add active class to current page link
         if (link.getAttribute('href') === currentPage) {
             link.classList.add('active');
         }
     });
+    
+    // Handle index.html and root path
+    if (currentPage === '' || currentPage === 'index.html') {
+        const homeLink = document.querySelector('a[href="index.html"]');
+        if (homeLink) {
+            homeLink.classList.add('active');
+        }
+    }
 });
 
 // ========== FLOATING PARTICLES FUNCTION ==========
