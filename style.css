@@ -13,6 +13,9 @@ body {
     color: #333;
     line-height: 1.6;
     overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    padding-top: 0; /* Remove any default padding */
 }
 
 @keyframes gradientShift {
@@ -63,7 +66,7 @@ body {
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 1rem 2rem;
+    padding: 0.8rem 2rem; /* Reduced padding */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -108,7 +111,7 @@ body {
 /* Mobile Navigation - Horizontal Scrolling */
 @media screen and (max-width: 768px) {
     .nav-container {
-        padding: 0.8rem 1rem;
+        padding: 0.6rem 1rem; /* Even more compact on mobile */
         flex-direction: column;
         gap: 0.8rem;
     }
@@ -233,9 +236,9 @@ body {
 
 /* ========== HERO SECTION ========== */
 .hero {
-    margin-top: 80px;
-    padding: 100px 0;
-    min-height: 90vh;
+    margin-top: 70px; /* Adjust this based on your navbar actual height */
+    padding: 2rem 2rem 1rem; /* Reduced from default padding */
+    min-height: auto; /* Remove min-height if set */
     display: flex;
     align-items: center;
 }
@@ -250,12 +253,36 @@ body {
 }
 
 .profile-pic {
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     object-fit: cover;
     border-radius: 50%;
     border: 5px solid #fff;
     box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    transform: rotate(90deg) scale(0.8); /* Rotation + 20% smaller */
+    transition: transform 0.3s ease;
+}
+
+.profile-pic:hover {
+    transform: rotate(90deg) scale(0.85); /* Slight size increase on hover */
+}
+
+/* Mobile responsive */
+@media screen and (max-width: 768px) {
+    .profile-pic {
+        width: 150px;
+        height: 150px;
+        transform: rotate(90deg) scale(0.7); /* Smaller on mobile */
+    }
+    
+    .profile-pic:hover {
+        transform: rotate(90deg) scale(0.75);
+    }
+}
+
+.hero-content {
+    gap: 1rem; /* Reduce gap between text and image */
+    margin-bottom: 1rem; /* Reduce bottom margin */
 }
 
 .hero-content h1 {
@@ -1425,5 +1452,179 @@ body {
 
     .investment-cta p {
         font-size: 1rem;
+    }
+}
+
+/* ========== FIX NAVBAR SPACING ========== */
+
+/* Ensure body content starts right after navbar */
+body {
+    margin: 0;
+    padding: 0;
+    padding-top: 0; /* Remove any default padding */
+}
+
+/* Make navbar more compact */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+    padding: 0.8rem 2rem; /* Reduced padding */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Calculate exact navbar height and adjust hero margin */
+.hero {
+    margin-top: 70px; /* Adjust this based on your navbar actual height */
+}
+
+@media screen and (max-width: 768px) {
+    .nav-container {
+        padding: 0.6rem 1rem; /* Even more compact on mobile */
+    }
+    
+    .hero {
+        margin-top: 65px; /* Smaller margin on mobile */
+    }
+}
+
+/* ========== EMERGENCY SPACING RESET ========== */
+
+/* Remove any unwanted margins/padding */
+.hero-section,
+.hero {
+    margin: 0;
+    padding-top: 80px; /* Only top padding for navbar clearance */
+    padding-bottom: 1rem; /* Minimal bottom padding */
+}
+
+/* Ensure next sections start immediately */
+.hero ~ section:first-of-type {
+    margin-top: 0;
+    padding-top: 1rem;
+}
+
+/* Mobile emergency fix */
+@media screen and (max-width: 768px) {
+    .hero {
+        padding-top: 70px;
+        padding-bottom: 0.8rem;
+    }
+}
+
+/* ========== PROFILE IMAGE - WITH ROTATION ========== */
+.profile-pic {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    transform: rotate(90deg) scale(0.8); /* Rotation + 20% smaller */
+    transition: transform 0.3s ease;
+}
+
+.profile-pic:hover {
+    transform: rotate(90deg) scale(0.85); /* Slight size increase on hover */
+}
+
+/* Mobile responsive */
+@media screen and (max-width: 768px) {
+    .profile-pic {
+        width: 150px;
+        height: 150px;
+        transform: rotate(90deg) scale(0.7); /* Smaller on mobile */
+    }
+    
+    .profile-pic:hover {
+        transform: rotate(90deg) scale(0.75);
+    }
+}
+
+/* ========== REDUCE HERO SECTION SPACING ========== */
+
+.hero {
+    padding: 2rem 2rem 1rem; /* Reduced from default padding */
+    margin-top: 80px; /* Adjust based on navbar height */
+    min-height: auto; /* Remove min-height if set */
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    gap: 1rem; /* Reduce gap between text and image */
+    margin-bottom: 1rem; /* Reduce bottom margin */
+}
+
+.hero-image {
+    margin: 0; /* Remove any default margins */
+    padding: 0.5rem; /* Minimal padding */
+}
+
+/* Reduce spacing in hero text section */
+.hero-text {
+    margin-bottom: 1rem; /* Reduce bottom margin */
+}
+
+.hero-text h1 {
+    margin-bottom: 0.5rem; /* Reduce title spacing */
+}
+
+.hero-text h2 {
+    margin-bottom: 0.8rem; /* Reduce subtitle spacing */
+}
+
+.hero-text p {
+    margin-bottom: 1.2rem; /* Reduce paragraph spacing */
+}
+
+/* Reduce spacing after hero section */
+.hero + section,
+.hero + .section {
+    margin-top: 1rem; /* Reduce top margin of next section */
+    padding-top: 1rem; /* Reduce top padding of next section */
+}
+
+/* Mobile adjustments */
+@media screen and (max-width: 768px) {
+    .hero {
+        padding: 1rem 1rem 0.5rem; /* Even less padding on mobile */
+        margin-top: 70px; /* Account for mobile navbar height */
+    }
+    
+    .hero-content {
+        gap: 0.8rem;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hero-image {
+        padding: 0.3rem;
+        margin: 0;
+    }
+    
+    .hero-text {
+        margin-bottom: 0.8rem;
+    }
+}
+
+/* Tablet adjustments */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .hero {
+        padding: 1.5rem 1.5rem 0.8rem;
+        margin-top: 75px;
+    }
+    
+    .hero-content {
+        gap: 1rem;
     }
 }
