@@ -1,4 +1,23 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jbestcodes.github.io/Portfolio-website/sitemap.xml
+# Sitemap location
+Sitemap: https://julieadul.site/sitemap.xml
+
+# Allow all important pages
+Allow: /index.html
+Allow: /about.html
+Allow: /projects.html
+Allow: /services.html
+Allow: /investments.html
+Allow: /contact.html
+
+# Allow assets
+Allow: /style.css
+Allow: /script.js
+Allow: /*.jpg
+Allow: /*.png
+Allow: /*.ico
+
+# Disallow nothing (allow everything)
+Disallow:
