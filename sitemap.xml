@@ -36,4 +36,7 @@
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
+    <sitemap>
+        <loc>https://julieadul.site/sitemap.xml</loc>
+    </sitemap>
 </urlset>

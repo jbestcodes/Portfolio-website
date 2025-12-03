@@ -2460,10 +2460,12 @@ section,
     }
 }
 
-/* Remove extra space below the page */
+/* Remove extra space below the page and footer */
 body, html {
     margin-bottom: 0 !important;
     padding-bottom: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
 }
 footer, .footer {
     margin-bottom: 0 !important;
@@ -2471,4 +2473,14 @@ footer, .footer {
 }
 footer + *:empty {
     display: none !important;
+}
+
+/* Remove large bottom padding/margin from sections */
+.skills-preview,
+.container,
+.project,
+.hero,
+.contact-form-wrapper {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
 }
