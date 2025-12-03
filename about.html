@@ -65,26 +65,45 @@
     <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#4ecdc4">
+    <script>
+    (function() {
+        let savedTheme = localStorage.getItem('theme');
+        if (!savedTheme) {
+            savedTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+    </script>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">Julie Adul</div>
-            
-            
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="about.html" class="nav-link active">About</a></li>
-                <li><a href="services.html" class="nav-link">Services</a></li>
-                <li><a href="projects.html" class="nav-link">Projects</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
-            </ul>
+    <header class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">Julie Adul</a>
+        <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link active">About</a></li>
+            <li><a href="projects.html" class="nav-link">Projects</a></li>
+            <li><a href="services.html" class="nav-link">Services</a></li>
+            <li><a href="investments.html" class="nav-link">Investments</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        
+        <!-- Dark Mode Toggle -->
+        <div class="theme-controls">
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button id="back-home" class="back-home-btn" onclick="goBackHome()" style="display: none;">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </button>
         </div>
-    </nav>
+    </div>
+</header>
 
     <!-- About Hero -->
-    <section class="hero">
+    <section class="hero slide-up">
         <div class="hero-container">
             <img src="me.jpg" alt="Julie Adul" class="profile-pic slide-right">
             <div class="hero-content slide-left">
@@ -199,9 +218,22 @@
             <div class="project slide-up" style="margin-bottom: 2rem;">
                 <h3>💻 Software Development Program</h3>
                 <p><strong>Institution:</strong> Powerlearn Project Africa</p>
-                <p><strong>Specialization:</strong> Full Stack Development-MERN Stack</p>
+                <p><strong>Specialization:</strong> Software Development - MERN Stack</p>
                 <p><strong>Year:</strong> 2025</p>
                 <p><strong>Key Skills Gained:</strong> HTML, CSS, JavaScript, React, Python, Database Management, API Integration, Version Control (Git/GitHub)</p>
+            </div>
+            
+            <!-- CS50 Course -->
+            <div class="project slide-up" style="margin-bottom: 2rem; background: linear-gradient(135deg, rgba(165, 42, 42, 0.1), rgba(255, 69, 0, 0.1)); border-left: 5px solid #a52a2a;">
+                <h3>🏛️ CS50: Introduction to Computer Science</h3>
+                <p><strong>Institution:</strong> Harvard University (via edX)</p>
+                <p><strong>Status:</strong> <span style="color: #ff4500; font-weight: bold;">In Progress</span></p>
+                <p><strong>Focus Areas:</strong> Computer Science Fundamentals, Algorithms, Data Structures, Memory Management</p>
+                <p><strong>Programming Languages:</strong> C, Python, SQL, JavaScript, HTML, CSS</p>
+                <p><strong>Key Concepts:</strong> Problem Solving, Computational Thinking, Software Engineering Principles</p>
+                <div style="background: rgba(165, 42, 42, 0.1); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                    <p><strong>💡 Why CS50?</strong> Strengthening my foundation in computer science principles and algorithms to become a more well-rounded developer with deep understanding of how computers work at a fundamental level.</p>
+                </div>
             </div>
             
             <div class="project slide-up" style="text-align: center; background: linear-gradient(45deg, #ff6b6b, #4ecdc4); color: white;">

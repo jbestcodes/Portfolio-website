@@ -6,7 +6,7 @@
     
     <!--  SEO Meta Tags -->
     <title>Julie Adul | Full Stack Web Developer Kenya | React, Python & WordPress Expert</title>
-    <meta name="description" content="Professional Full Stack Web Developer in Kenya. Expert in React.js, Python, WordPress, and modern web development. Building scalable web applications, chama management systems, and custom solutions. Available for hire.">
+    <meta name="description" content="Professional Full Stack Web Developer. Expert in React.js, Python, WordPress, and modern web development. Building scalable web applications, chama management systems, and custom solutions. Available for hire.">
     <meta name="keywords" content="full stack web developer, React developer, Python developer, WordPress expert, freelance web developer, remote web developer, web development services, JavaScript developer, Node.js developer, MongoDB developer, AI integration developer, modern web applications, responsive web design, e-commerce developer, custom web solutions, Julie Adul developer, JBestCodes, professional web developer, scalable web applications, UI UX developer, API development, database design, web security expert">
     <meta name="author" content="Julie Adul">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -228,24 +228,44 @@
     }
 }
 </script>
+    <script>
+    (function() {
+        let savedTheme = localStorage.getItem('theme');
+        if (!savedTheme) {
+            savedTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+    </script>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">Julie Adul</div>
-            
-            <!-- Update the nav menu in all your HTML files -->
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="projects.html" class="nav-link">Projects</a></li>
-                <li><a href="services.html" class="nav-link">Services</a></li>
-                <li><a href="investments.html" class="nav-link">Investments</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
-            </ul>
+    <!-- Update the nav-container in index.html -->
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="nav-logo">Julie Adul</div>
+        
+        <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="projects.html" class="nav-link">Projects</a></li>
+            <li><a href="services.html" class="nav-link">Services</a></li>
+            <li><a href="investments.html" class="nav-link">Investments</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        
+        <!-- Dark Mode Toggle -->
+        <div class="theme-controls">
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button id="back-home" class="back-home-btn" onclick="goBackHome()" style="display: none;">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </button>
         </div>
-    </nav>
+    </div>
+</nav>
 
     <!-- hero section with better semantic tags -->
     <main>

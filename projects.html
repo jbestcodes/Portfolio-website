@@ -66,23 +66,43 @@
     <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#4ecdc4">
+
+    <script>
+    (function() {
+        let savedTheme = localStorage.getItem('theme');
+        if (!savedTheme) {
+            savedTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+    </script>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
+    <header class="navbar">
         <div class="nav-container">
-            <div class="nav-logo">Julie Adul</div>
-            
-            
+            <a href="index.html" class="nav-logo">Julie Adul</a>
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="services.html" class="nav-link">Services</a></li>
                 <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="investments.html" class="nav-link active">Investments</a></li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
+            
+            <!-- Dark Mode Toggle -->
+            <div class="theme-controls">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button id="back-home" class="back-home-btn" onclick="goBackHome()" style="display: none;">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </button>
+            </div>
         </div>
-    </nav>
+    </header>
 
     <!-- Projects Hero -->
     <section class="hero">
@@ -315,31 +335,5 @@
             });
         });
     </script>
-
-    <!-- Read More/Less Toggle Script -->
-    <script>
-function toggleReadMore(button) {
-    const projectContent = button.closest('.project').querySelector('.project-content');
-    const details = projectContent.querySelector('.project-details');
-    const icon = button.querySelector('i');
-    const text = button.childNodes[button.childNodes.length - 1]; // Get the text node
-    
-    if (!details.classList.contains('show')) {
-        details.style.display = 'block';
-        details.classList.add('show');
-        button.classList.add('expanded');
-        text.textContent = ' Read Less';
-    } else {
-        details.classList.remove('show');
-        button.classList.remove('expanded');
-        text.textContent = ' Read More';
-        setTimeout(() => {
-            if (!details.classList.contains('show')) {
-                details.style.display = 'none';
-            }
-        }, 400);
-    }
-}
-</script>
 </body>
 </html>

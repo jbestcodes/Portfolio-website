@@ -161,22 +161,43 @@
     <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
     <meta name="theme-color" content="#4ecdc4">
     <link rel="manifest" href="site.webmanifest">
+    
+    <script>
+    (function() {
+        let savedTheme = localStorage.getItem('theme');
+        if (!savedTheme) {
+            savedTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+    </script>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
+    <header class="navbar">
         <div class="nav-container">
-            <div class="nav-logo">Julie Adul</div>
-            
+            <a href="index.html" class="nav-logo">Julie Adul</a>
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="services.html" class="nav-link">Services</a></li>
                 <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="investments.html" class="nav-link active">Investments</a></li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
+            
+            <!-- Dark Mode Toggle -->
+            <div class="theme-controls">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button id="back-home" class="back-home-btn" onclick="goBackHome()" style="display: none;">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </button>
+            </div>
         </div>
-    </nav>
+    </header>
 
     <!-- Contact Hero -->
     <section class="hero">
