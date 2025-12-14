@@ -190,7 +190,7 @@ function goBackHome() {
 // ========== EXTERNAL LINK TRACKING ========== //
 document.addEventListener('DOMContentLoaded', function() {
     // Mark session when user visits from external projects
-    const externalButtons = document.querySelectorAll('a[href*="chamavault"], a[href*="topjobkenya"], a[href*="jbestpay"], a[href*="bukachihopegivers"]');
+    const externalButtons = document.querySelectorAll('a[href*="Jaza Nyumba"], a[href*="topjobkenya"], a[href*="jbestpay"], a[href*="bukachihopegivers"]');
     
     externalButtons.forEach(button => {
         button.addEventListener('click', function() {
